@@ -1,5 +1,6 @@
 <h1 align="center">
-  <img src="https://github.com/Skitttz/AniArt/assets/94083688/2f3fc33a-9bc0-4862-ab3b-2a9c8c1d4a7e" width="10%" />
+  <img src="https://github.com/Skitttz/AniArt/assets/94083688/8b7409fa-f355-4038-ad94-dfedc16d1ecb" width="10%" />
+
 </h1>
 
 
@@ -13,7 +14,7 @@
 
 
 <div align="center">
-<img src="https://github.com/Skitttz/AniArt/assets/94083688/53172bab-9ccc-4877-b487-b21d4b42de8a" width="90%" />
+<img src="https://i.ibb.co/yNRP3fn/AniArt.png" width="90%" />
 </div>
 
 ## Contexto 📝
