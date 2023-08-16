@@ -1,0 +1,25 @@
+import initScrollSmooth from "./modules/scroll-smooth.js";
+import initAnimationScroll from "./modules/scroll-animation.js";
+import initAccordList from "./modules/accord-list.js";
+import initTabNav from "./modules/tab-nav.js";
+import initMenu from "./modules/menuMobile.js";
+import initModal from "./modules/modal.js";
+import initTooltip from "./modules/tooltip.js";
+import initModalRegister from "./modules/modal-register.js";
+import initDropDownMenu from "./modules/dropdown-menu.js";
+import initDateObject from "./modules/date.js";
+import initFetchAnimes from "./modules/fetchAnimes.js";
+import initDarkMode from "./modules/dark-mode.js";
+
+initMenu();
+initDropDownMenu();
+initModal();
+initTabNav();
+initAccordList();
+initAnimationScroll();
+initScrollSmooth();
+initTooltip();
+initModalRegister();
+initDateObject();
+initFetchAnimes();
+initDarkMode();

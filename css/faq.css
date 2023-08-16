@@ -1,0 +1,81 @@
+.faq-lista {
+  grid-column: 1 / 4;
+  margin-left: 5rem;
+}
+
+.faq-lista dt {
+  cursor: pointer;
+  font-family: 'Karla', sans-serif;
+  font-weight: bold;
+  margin-top: 2rem;
+  margin-bottom: .5rem;
+  color: #27271b;
+  
+}
+
+.faq-lista dt::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 5px;
+  margin-right: 10px;
+  background: #000000;
+}
+
+.faq-lista dd {
+  font-family: 'Karla', sans-serif;
+  color: aliceblue;
+  margin-bottom: .5rem;
+  margin-left: 30px;
+}
+
+
+
+
+.dados {
+  padding: 20px;
+  
+}
+
+.dados li p{
+  display: inline-block;
+
+}
+
+.dados li {
+  display: inline;
+  margin-bottom: 1rem;
+  font-family: Helvetica, Arial;
+  color: aliceblue;
+}
+
+.dados li img{
+  display: inline;
+  max-width: 16px;
+  max-height: 16px;
+}
+
+.dados li + li{
+  margin-left: 8px;
+}
+
+
+
+.copy {
+  display: grid;
+  justify-items: center;
+  grid-column: 1/-1;
+  background: #000000;
+
+}
+
+
+
+.copy p {
+  text-align: center;
+  align-self: center;
+  font-family: 'Karla', sans-serif;
+  font-weight: lighter;
+  color:gray;
+}

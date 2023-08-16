@@ -1,0 +1,12 @@
+.text-year-anime{
+  font-size: 0.8rem !important;
+  text-align: right !important;
+
+} 
+
+[date-year]{
+  border-radius:5px;
+  padding: 2px;
+  background-color: rgba(34, 34, 34, .6);
+  color: var(--color-gray-light);
+}

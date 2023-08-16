@@ -1,0 +1,206 @@
+.modal-container {
+  height: 100vh;
+  width: 100%;
+  background: rgb(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 2000;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-container.ativo {
+  display: flex;
+}
+
+.modal {
+  background: rgba(0, 0, 0, 0.9);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding: 40px;
+  min-width: 300px;
+  border-radius: 5px;
+  border: 3px solid rgba(34, 34, 34, 0.7);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.08), 0 2px 2px rgba(0, 0, 0, 0.12),
+    0 4px 4px rgba(0, 0, 0, 0.16), 0 8px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.forgetPass label {
+  margin-right: 40px !important;
+}
+
+.forgetPass a {
+  font-weight: 500;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  font-style: italic;
+  color: var(--color-gray-light);
+}
+
+.noAccount {
+  font-weight: 400 !important;
+}
+
+.noAccount a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+[data-modal="openRegisterIntoLogin"] {
+  color: var(--color-blue2);
+}
+
+@keyframes modal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -20px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.inputI {
+  position: relative;
+}
+
+.inputI input[type="email"],
+.inputI input[type="password"] {
+  padding-left: 40px;
+  border-radius: 4px;
+}
+
+.inputI img {
+  position: absolute;
+  left: 6px;
+  bottom: 8px;
+  opacity: 0.2;
+}
+
+#eyeIcon {
+  opacity: 1;
+  position: absolute;
+  width: 26px;
+  top: 37px;
+  cursor: pointer;
+  left: 260px;
+}
+
+.inputI input[type="email"]:focus + img {
+  transition: 0.3s linear;
+  opacity: 1;
+}
+
+.inputI input[type="password"]:focus + img {
+  transition: 0.3s linear;
+
+  opacity: 1;
+}
+
+.ativo .modal {
+  animation: modal 0.3s forwards;
+}
+
+.icon {
+  max-width: 24px;
+}
+
+.close {
+  width: 50px;
+  height: 30px;
+  color: white;
+  border: 1px solid white;
+  top: 5px;
+  right: 8px;
+  position: absolute;
+  background-color: transparent;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px 0px 0px inset;
+  font-size: 0.7rem;
+  font-weight: bold;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.25s ease-in;
+}
+
+.close:hover {
+  background-color: white;
+  color: #fca021;
+}
+
+.modal label {
+  color: #ffff;
+  display: block;
+  font-weight: bold;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.modal input {
+  width: 100%;
+  padding: 0.7rem 0.5rem;
+  box-sizing: border-box;
+}
+
+.modal button[type="submit"] {
+  display: block;
+  background-color: #fca021;
+  border: 1px solid #000;
+  color: #141e27;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: 0.25s ease-in;
+  border-radius: 4px;
+  padding: 0.7rem 2rem;
+  margin-top: 2rem;
+  font-weight: bold;
+}
+
+.modal button[type="submit"]:hover {
+  border: 1px solid rgba(255, 129, 41, 0.1);
+  background-color: #141e27;
+  color: #eeedde;
+}
+
+.modal input {
+  border-color: transparent;
+  border-width: 0 0 3px;
+  outline: 0;
+}
+
+.modal input:hover {
+  border-color: #4375d9;
+  transition: 0.3s ease-in;
+  border-width: 0 0 3px;
+}
+
+.modal input:not(:focus) {
+  transition: 0.3s ease-out;
+}
+
+.modal input:focus {
+  border-color: #31558f;
+  transition: 0.3s ease-in;
+  border: 1px solid #4375d9;
+  border-width: 0 0 3px;
+  outline: 0;
+}
+
+@media (max-width: 768px) {
+  .modal {
+    padding: 20px;
+    min-width: 300px;
+  }
+}
+
+@media (max-width: 450px) {
+  .modal {
+    padding: 15px;
+    min-width: 250px;
+  }
+}

@@ -1,0 +1,95 @@
+.number h1{
+  margin-top: 3rem;
+  color: #333 ;
+}
+
+.number-grid {
+
+  grid-column: 1 / 4;
+  
+  margin-left: 5rem;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+}
+
+
+.text-grid{
+  grid-column: 1/5;
+  font-size: 1.3rem;
+  color: #333;
+  text-align: justify;
+  margin-left: 5rem;
+}
+
+
+.text-grid a{  
+  font-weight: bold;
+  text-decoration:none;
+  color: #222;}
+
+.number-grid{
+  font-size: 2rem;
+}
+
+.number-grid h3{
+  text-transform: uppercase;
+  opacity: .9;
+}
+
+.number-grid span {
+  font-weight:bold;
+  color: var(   --color-orange2);
+  font-family: "IBM PLEX";
+}
+
+@media (max-width:700px){
+  .text-grid{
+    margin-left: 0rem;
+  }
+  .number-grid{
+    grid-column: 2;
+    grid-gap: 15px;
+  }
+
+  .number-grid h3{
+    font-size: 2rem;
+  }
+  .number-grid {
+    margin-left: 0rem ;
+}
+}
+
+@media(max-width: 568px){
+  .number-grid{
+    grid-column: 1;
+    grid-gap: 15px;
+    margin-left: 5rem;
+  }
+
+  .number-grid h3{
+    font-size: 1.325rem;
+  }
+}
+
+@media(max-width: 400px){
+  .number-grid{
+    margin-left: 3rem;
+  }
+
+}
+
+@media(max-width:375px){
+  .number-grid{
+    margin-left: 4rem;
+  }
+.number-grid h3{
+  font-size: 1.125rem;
+  }
+}
+
+@media(max-width:320px){  
+  .number-grid{
+    margin-left: 2rem;
+  }
+}
