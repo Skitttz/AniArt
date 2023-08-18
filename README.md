@@ -25,11 +25,12 @@
 
 Desenvolver um projeto de comunidade de anime pode ser empolgante, mas também apresenta desafios. Aqui está um resumo de alguns desafios que foram impostos para executar esse projeto:
 
-- [x] Alinhar o layout de forma harmoniosa;
 - [x] Dropdowm menu interativo;
 - [x] Aplicar o objeto <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Date">date</a> no contexto do projeto;
 - [x] Modal de login/registrar personalizado;
-- [x] Criação do Dark Mode clicável por meio do emoji.
+- [x] Criação do Dark Mode;
+- [x] Refatorar projeto.
+
 
 ## Tecnologias 🖥️
 
