@@ -2,7 +2,6 @@ export default function initDarkMode() {
   const moon = document.querySelector('[data-mode="light"] a');
   const sections = document.querySelectorAll("[data-dark]");
   const eventos = ["click", "touchstart"];
-
   moon.style.fontSize = "1.2rem";
 
   function changeMode() {

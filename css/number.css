@@ -1,20 +1,17 @@
-.number h1{
+.number h1 {
   margin-top: 3rem;
-  color: #333 ;
+  color: #333;
 }
 
 .number-grid {
-
   grid-column: 1 / 4;
-  
   margin-left: 5rem;
-  display:grid;
+  display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 30px;
 }
 
-
-.text-grid{
+.text-grid {
   grid-column: 1/5;
   font-size: 1.3rem;
   color: #333;
@@ -22,74 +19,73 @@
   margin-left: 5rem;
 }
 
-
-.text-grid a{  
+.text-grid a {
   font-weight: bold;
-  text-decoration:none;
-  color: #222;}
+  text-decoration: none;
+  color: #222;
+}
 
-.number-grid{
+.number-grid {
   font-size: 2rem;
 }
 
-.number-grid h3{
+.number-grid h3 {
   text-transform: uppercase;
-  opacity: .9;
+  opacity: 0.9;
 }
 
 .number-grid span {
-  font-weight:bold;
-  color: var(   --color-orange2);
+  font-weight: bold;
+  color: var(--color-orange2);
   font-family: "IBM PLEX";
 }
 
-@media (max-width:700px){
-  .text-grid{
+@media (max-width: 700px) {
+  .text-grid {
     margin-left: 0rem;
   }
-  .number-grid{
+  .number-grid {
     grid-column: 2;
     grid-gap: 15px;
   }
 
-  .number-grid h3{
+  .number-grid h3 {
     font-size: 2rem;
   }
   .number-grid {
-    margin-left: 0rem ;
-}
+    margin-left: 0rem;
+  }
 }
 
-@media(max-width: 568px){
-  .number-grid{
+@media (max-width: 568px) {
+  .number-grid {
     grid-column: 1;
     grid-gap: 15px;
     margin-left: 5rem;
   }
 
-  .number-grid h3{
+  .number-grid h3 {
     font-size: 1.325rem;
   }
 }
 
-@media(max-width: 400px){
-  .number-grid{
+@media (max-width: 400px) {
+  .number-grid {
     margin-left: 3rem;
   }
-
 }
 
-@media(max-width:375px){
-  .number-grid{
+@media (max-width: 375px) {
+  .number-grid {
     margin-left: 4rem;
   }
-.number-grid h3{
-  font-size: 1.125rem;
+  .number-grid h3 {
+    font-size: 1.125rem;
   }
 }
 
-@media(max-width:320px){  
-  .number-grid{
+@media (max-width: 320px) {
+  .number-grid {
     margin-left: 2rem;
   }
 }

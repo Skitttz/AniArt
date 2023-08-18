@@ -45,7 +45,6 @@ export default class Modal {
   }
 
   clickOutModal(event) {
-    console.log(this);
     if (event.target === this.containerModal) {
       this.toggleModal(event);
     }
@@ -66,7 +65,6 @@ export default class Modal {
   addModalEvents() {
     this.bOpen.addEventListener("click", this.eventToggleModal);
     this.bClose.addEventListener("click", this.eventToggleModal);
-    // this.bInto.addEventListener("click", this.intoModal);
     this.containerModal.addEventListener("click", this.clickOutModal);
     this.registerModal.addEventListener("click", this.LoginToRegister);
     this.eyeIcon.addEventListener("click", this.showPassword);

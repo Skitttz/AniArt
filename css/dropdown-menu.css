@@ -1,20 +1,19 @@
-[data-dropdown]{
+[data-dropdown] {
   position: relative;
 }
 
-
-[data-dropdown] .dropdown-menu{
-  animation: show-down .3s backwards;
+[data-dropdown] .dropdown-menu {
+  animation: show-down 0.3s backwards;
   display: none;
 }
 
-[data-dropdown]:hover .dropdown-menu, 
-[data-dropdown].ativo .dropdown-menu{
+[data-dropdown]:hover .dropdown-menu,
+[data-dropdown].ativo .dropdown-menu {
   display: block;
-  animation: show-up .3s forwards;
+  animation: show-up 0.3s forwards;
 }
 
-.dropdown-menu{
+.dropdown-menu {
   border-radius: 5px;
   position: absolute;
   top: 45px;
@@ -23,29 +22,28 @@
 }
 
 @keyframes show-up {
-  from{
+  from {
     opacity: 0;
-    transform: translate3d(0,30px,0);
+    transform: translate3d(0, 30px, 0);
   }
-  to{
+  to {
     opacity: 1;
-    trasnform: translate3d(0,0,0);
+    trasnform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes show-down {
-  from{
+  from {
     opacity: 0;
-    transform: translate3d(0,-30px,0);
+    transform: translate3d(0, -30px, 0);
   }
-  to{
+  to {
     opacity: 1;
-    trasnform: translate3d(0,0,0);
+    trasnform: translate3d(0, 0, 0);
   }
 }
 
-
-.dropdown-menu::before{
+.dropdown-menu::before {
   content: "";
   display: block;
   position: absolute;
@@ -56,21 +54,20 @@
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
   border-bottom: 10px solid #333333;
-
 }
 
-.dropdown-menu li{
+.dropdown-menu li {
   display: flex;
   justify-content: center;
-  background-color: rgba(51, 51, 51, .8);
+  background-color: rgba(51, 51, 51, 0.8);
   border-bottom: solid 5px #333;
 }
 
-.dropdown-menu li:first-child{
+.dropdown-menu li:first-child {
   border-top: solid 5px #333;
 }
 
-.dropdown-menu li a{
+.dropdown-menu li a {
   border-radius: 3px;
   display: inline-block;
   white-space: nowrap;
@@ -78,19 +75,17 @@
   text-overflow: ellipsis;
 }
 
-.dropdown-menu li a:hover{
+.dropdown-menu li a:hover {
   background-color: whitesmoke;
   margin: 0;
   color: #222;
 }
 
-@media (max-width:768px){
-  .dropdown-menu{
+@media (max-width: 768px) {
+  .dropdown-menu {
     position: static;
   }
-  .drop-menu li a{
-    padding: 10px; 
+  .drop-menu li a {
+    padding: 10px;
   }
-
-
 }
