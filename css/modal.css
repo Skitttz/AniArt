@@ -71,7 +71,8 @@
 }
 
 .inputI input[type="email"],
-.inputI input[type="password"] {
+.inputI input[type="password"],
+.inputI input[type="text"] {
   padding-left: 40px;
   border-radius: 4px;
 }

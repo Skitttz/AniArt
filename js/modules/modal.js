@@ -1,43 +1,60 @@
-export default function initModal() {
-  const bOpen = document.querySelector("[data-modal='open']");
-  const bClose = document.querySelector("[data-modal='close']");
-  const bInto = document.querySelector("[data-modal='into']");
-  const containerModal = document.querySelector("[data-modal='container']");
-  const containerModalR = document.querySelector("[data-modal='containerR']");
-  const registerModal = document.querySelector(
-    "[data-modal='openRegisterIntoLogin']"
-  );
-  const eyeIcon = document.getElementById("eyeIcon");
-  const password = document.getElementById("password");
+export default class Modal {
+  constructor(
+    bOpen,
+    bClose,
+    bInto,
+    containerModal,
+    containerModalR,
+    registerModal,
+    IdIconOpen,
+    IdIconClose
+  ) {
+    this.bOpen = document.querySelector(bOpen);
+    this.bClose = document.querySelector(bClose);
+    this.bInto = document.querySelector(bInto);
+    this.containerModal = document.querySelector(containerModal);
+    this.containerModalR = document.querySelector(containerModalR);
+    this.registerModal = document.querySelector(registerModal);
 
-  function showPassword() {
-    eyeIcon.onclick = function passworClick() {
-      if (password.type === "password") {
-        password.type = "text";
-        eyeIcon.src = "./img/eye-open.png";
-      } else {
-        password.type = "password";
-        eyeIcon.src = "./img/eye-close.png";
-      }
-    };
+    this.eyeIcon = document.getElementById(IdIconOpen);
+    this.password = document.getElementById(IdIconClose);
+
+    this.eventToggleModal = this.eventToggleModal.bind(this);
+    this.clickOutModal = this.clickOutModal.bind(this);
+    this.showPassword = this.showPassword.bind(this);
+    this.LoginToRegister = this.LoginToRegister.bind(this);
   }
 
-  function toggleModal(event) {
-    event.preventDefault();
-    containerModal.classList.toggle("ativo");
-  }
-
-  function clickOutModal(event) {
-    if (event.target === this) {
-      toggleModal(event);
+  showPassword() {
+    if (this.password.type === "password") {
+      this.password.type = "text";
+      this.eyeIcon.src = "./img/eye-open.png";
+    } else {
+      this.password.type = "password";
+      this.eyeIcon.src = "./img/eye-close.png";
     }
   }
-  function intoModal() {}
 
-  function LoginToRegister(event) {
+  toggleModal() {
+    this.containerModal.classList.toggle("ativo");
+  }
+
+  eventToggleModal(event) {
     event.preventDefault();
-    containerModal.classList.toggle("ativo");
-    containerModalR.classList.toggle("ativo");
+    this.toggleModal();
+  }
+
+  clickOutModal(event) {
+    console.log(this);
+    if (event.target === this.containerModal) {
+      this.toggleModal(event);
+    }
+  }
+
+  LoginToRegister(event) {
+    event.preventDefault();
+    this.containerModal.classList.toggle("ativo");
+    this.containerModalR.classList.toggle("ativo");
     const ModalHeight = document
       .getElementById("modalR")
       .offsetHeight.toString();
@@ -46,12 +63,18 @@ export default function initModal() {
       .setAttribute("style", `height:${ModalHeight}px`);
   }
 
-  if (bOpen && bClose && containerModal) {
-    bOpen.addEventListener("click", toggleModal);
-    bClose.addEventListener("click", toggleModal);
-    bInto.addEventListener("click", intoModal);
-    containerModal.addEventListener("click", clickOutModal);
-    registerModal.addEventListener("click", LoginToRegister);
-    showPassword();
+  addModalEvents() {
+    this.bOpen.addEventListener("click", this.eventToggleModal);
+    this.bClose.addEventListener("click", this.eventToggleModal);
+    // this.bInto.addEventListener("click", this.intoModal);
+    this.containerModal.addEventListener("click", this.clickOutModal);
+    this.registerModal.addEventListener("click", this.LoginToRegister);
+    this.eyeIcon.addEventListener("click", this.showPassword);
+  }
+
+  init() {
+    if (this.bOpen && this.bClose && this.containerModal) {
+      this.addModalEvents();
+    }
   }
 }
