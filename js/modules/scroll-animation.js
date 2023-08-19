@@ -1,45 +1,45 @@
-export default function initAnimationScroll() {
-  const sections = document.querySelectorAll("[data-animation='scroll']");
-  let animationInZoom = 0.8;
-  let isZoomLow = false;
-  let value = 300;
-  const windowScreenSplit = window.innerHeight * animationInZoom;
+import debounce from "./debounce";
 
-  function animationScroll() {
-    const ZoomLevel = Math.round(window.devicePixelRatio * 100);
-    if (ZoomLevel > 50 && ZoomLevel <= 68) {
-      animationInZoom = 2;
-      isZoomLow = false;
-      value = 300;
-    } else if (ZoomLevel > 34 && ZoomLevel <= 50) {
-      animationInZoom = 5;
-      isZoomLow = false;
-      value = 200;
-    } else if (ZoomLevel <= 34) {
-      animationInZoom = 33;
-      isZoomLow = true;
-    } else if (ZoomLevel > 100) {
-      animationInZoom = 0;
-      isZoomLow = false;
-      value = 300;
-    } else {
-      animationInZoom = 0.8;
-      isZoomLow = false;
-    }
+export default class ScrollAnimation {
+  constructor(sections) {
+    this.sections = document.querySelectorAll(sections);
+    this.windowScreenSplit = window.innerHeight * 0.45;
+    this.checkDistance = debounce(this.checkDistance.bind(this), 50);
+  }
 
-    sections.forEach((section) => {
-      const sectionTop = section.getBoundingClientRect().top;
-      const isSectionVisible = sectionTop - windowScreenSplit + value < 0;
-      if (isSectionVisible || isZoomLow) {
-        section.classList.add("ativo");
-      } else if (section.classList.contains("ativo")) {
-        section.classList.remove("ativo");
+  /* Captura a distancia de cada objeto ao topo do site */
+  getDistance() {
+    this.distance = [...this.sections].map((section) => {
+      const offset = section.offsetTop;
+      return {
+        element: section,
+        offset: Math.floor(offset - this.windowScreenSplit),
+      };
+    });
+  }
+
+  /* Verificacao de Distancia do Scroll de cada objeto em relacao ao site */
+  checkDistance() {
+    this.distance.forEach((item) => {
+      if (window.pageYOffset > item.offset) {
+        item.element.classList.add("ativo");
+      } else if (item.element.classList.contains("ativo")) {
+        item.element.classList.remove("ativo");
       }
     });
   }
 
-  if (sections.length) {
-    animationScroll();
-    window.addEventListener("scroll", animationScroll);
+  init() {
+    if (this.sections.length) {
+      this.getDistance();
+      this.checkDistance();
+      window.addEventListener("scroll", this.checkDistance);
+    }
+    return this;
+  }
+
+  /* Remove o evento de Scroll */
+  stop() {
+    window.removeEventListener("scroll", this.checkDistance);
   }
 }

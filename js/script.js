@@ -3,8 +3,8 @@ import AccordList from "./modules/accord-list.js";
 import TabNav from "./modules/tab-nav.js";
 import Modal from "./modules/modal.js";
 import Tooltip from "./modules/tooltip.js";
+import ScrollAnimation from "./modules/scroll-animation.js";
 
-import initAnimationScroll from "./modules/scroll-animation.js";
 import initMenu from "./modules/menuMobile.js";
 import initModalRegister from "./modules/modal-register.js";
 import initDropDownMenu from "./modules/dropdown-menu.js";
@@ -40,11 +40,13 @@ modal.init();
 const tooltip = new Tooltip("[data-tooltip]");
 tooltip.init();
 
+const scrollAnimation = new ScrollAnimation("[data-animation='scroll']");
+scrollAnimation.init();
+
 initMenu();
 initDropDownMenu();
-initAnimationScroll();
 initModalRegister();
 initDateObject();
 initDarkMode();
 
-fetchAnimes("../../animesApi.json", ".number-grid");
+fetchAnimes("./animesApi.json", ".number-grid");
