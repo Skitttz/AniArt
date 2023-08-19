@@ -37,7 +37,7 @@
 .number-grid span {
   font-weight: bold;
   color: var(--color-orange2);
-  font-family: "IBM PLEX";
+  font-family: "Lato";
 }
 
 @media (max-width: 700px) {

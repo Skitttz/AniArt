@@ -1,17 +1,21 @@
-export default function initDateObject() {
-  const now = new Date();
-  const span = document.querySelectorAll("[date-year]");
-  const animesYears = [
-    { name: "Samurai Champloo", year: 2005 },
-    { name: "Cowboy Bepop", year: 1999 },
-    { name: "Neon Genesis Evangelion", year: 1995 },
-    { name: "Ghost in the Shell", year: 1995 },
-    { name: "Akira", year: 1998 },
-    { name: "Soul Eater", year: 2003 },
-  ];
+export default class DateObject {
+  constructor(target, objectTarget) {
+    this.now = new Date();
+    this.span = document.querySelectorAll(target);
+    this.animesYears = objectTarget;
+  }
 
-  animesYears.forEach((item, index) => {
-    const Anos = now.getFullYear() - item.year;
-    span[index].innerText = `${Anos} anos atrás`;
-  });
+  /* Inserir Objeto Data e colocar valor no span */
+  createObjectDate() {
+    this.animesYears.forEach((item, index) => {
+      const Anos = this.now.getFullYear() - item.year;
+      this.span[index].innerText = `${Anos} anos atrás`;
+    });
+  }
+
+  init() {
+    if (this.span.length && this.animesYears.length) {
+      this.createObjectDate();
+    }
+  }
 }

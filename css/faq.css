@@ -54,17 +54,3 @@
   margin-left: 8px;
 }
 
-.copy {
-  display: grid;
-  justify-items: center;
-  grid-column: 1/-1;
-  background: #000000;
-}
-
-.copy p {
-  text-align: center;
-  align-self: center;
-  font-family: "Karla", sans-serif;
-  font-weight: lighter;
-  color: gray;
-}

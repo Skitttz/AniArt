@@ -8,5 +8,6 @@
 @import "dropdown-menu.css";
 @import "number.css";
 @import "date.css";
+@import "footer.css";
 @import "dark-mode.css";
-
+@import "./utility/separator.css";

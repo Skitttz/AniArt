@@ -19,6 +19,8 @@ export default class Modal {
     this.eyeIcon = document.getElementById(IdIconOpen);
     this.password = document.getElementById(IdIconClose);
 
+    this.activeClass = "ativo";
+
     this.eventToggleModal = this.eventToggleModal.bind(this);
     this.clickOutModal = this.clickOutModal.bind(this);
     this.showPassword = this.showPassword.bind(this);
@@ -36,7 +38,7 @@ export default class Modal {
   }
 
   toggleModal() {
-    this.containerModal.classList.toggle("ativo");
+    this.containerModal.classList.toggle(this.activeClass);
   }
 
   eventToggleModal(event) {
@@ -46,14 +48,14 @@ export default class Modal {
 
   clickOutModal(event) {
     if (event.target === this.containerModal) {
-      this.toggleModal(event);
+      this.toggleModal();
     }
   }
 
   LoginToRegister(event) {
     event.preventDefault();
-    this.containerModal.classList.toggle("ativo");
-    this.containerModalR.classList.toggle("ativo");
+    this.containerModal.classList.toggle(this.activeClass);
+    this.containerModalR.classList.toggle(this.activeClass);
     const ModalHeight = document
       .getElementById("modalR")
       .offsetHeight.toString();

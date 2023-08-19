@@ -2,14 +2,13 @@ import ScrollSmooth from "./modules/scroll-smooth.js";
 import AccordList from "./modules/accord-list.js";
 import TabNav from "./modules/tab-nav.js";
 import Modal from "./modules/modal.js";
+import ModalRegister from "./modules/modal-register.js";
 import Tooltip from "./modules/tooltip.js";
 import ScrollAnimation from "./modules/scroll-animation.js";
 import DropDownMenu from "./modules/dropdown-menu.js";
-
 import MenuMobile from "./modules/menuMobile.js";
-import initModalRegister from "./modules/modal-register.js";
+import DateObject from "./modules/date.js";
 
-import initDateObject from "./modules/date.js";
 import initDarkMode from "./modules/dark-mode.js";
 
 import fetchAnimes from "./modules/fetchAnimes.js";
@@ -38,6 +37,14 @@ const modal = new Modal(
 );
 modal.init();
 
+const modalRegister = new ModalRegister(
+  "[data-modal='openR']",
+  "[data-modal='closeR']",
+  "[data-modal='intoR']",
+  "[data-modal='containerR']"
+);
+modalRegister.init();
+
 const tooltip = new Tooltip("[data-tooltip]");
 tooltip.init();
 
@@ -60,8 +67,15 @@ const menuMobile = new MenuMobile(
 );
 menuMobile.init();
 
-initModalRegister();
-initDateObject();
+const dateObject = new DateObject("[date-year]", [
+  { name: "Samurai Champloo", year: 2005 },
+  { name: "Cowboy Bepop", year: 1999 },
+  { name: "Neon Genesis Evangelion", year: 1995 },
+  { name: "Ghost in the Shell", year: 1995 },
+  { name: "Akira", year: 1998 },
+  { name: "Soul Eater", year: 2003 },
+]);
+dateObject.init();
 initDarkMode();
 
 fetchAnimes("./animesApi.json", ".number-grid");
