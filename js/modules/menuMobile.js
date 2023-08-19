@@ -1,34 +1,64 @@
 import outsideClick from "./outsideclick.js";
 
-export default function initMenu() {
-  const eventos = ["click", "touchstart"];
-  const menuHamburguer = document.querySelector(".hMenu");
-  const menu = document.querySelector(".menu");
-  const navMenu = document.querySelector(".listLinks");
-  const bar = document.querySelector(".last");
+export default class MenuMobile {
+  constructor(menuH, menu, navMenu, itemMenus, lastItem, events) {
+    this.menuHamburguer = document.querySelector(menuH);
+    this.menu = document.querySelector(menu);
+    this.navMenu = document.querySelector(navMenu);
+    this.itemMenus = document.querySelectorAll(itemMenus);
+    this.activeClass = "ativo";
 
-  menuHamburguer.addEventListener("click", () => {
-    menu.classList.toggle("ativo");
-    menuHamburguer.classList.toggle("ativo");
-    navMenu.classList.toggle("ativo");
-    bar.classList.toggle("ativo");
-  });
+    /* Feito para o ultimo item */
+    this.bar = document.querySelector(lastItem);
 
-  document.querySelectorAll(".link").forEach((n) =>
-    n.addEventListener("click", () => {
-      menuHamburguer.classList.remove("ativo");
-      navMenu.classList.remove("ativo");
-      menu.classList.remove("ativo");
-      bar.classList.remove("ativo");
-    })
-  );
+    if (events === undefined) {
+      this.eventos = ["click", "touchstart"];
+    } else {
+      this.eventos = events;
+    }
 
-  menuHamburguer.addEventListener("click", () => {
-    outsideClick(navMenu, eventos, () => {
-      menuHamburguer.classList.remove("ativo");
-      navMenu.classList.remove("ativo");
-      menu.classList.remove("ativo");
-      bar.classList.remove("ativo");
+    this.openMenu = this.openMenu.bind(this);
+  }
+
+  openMenu() {
+    /* Iniciar Menu ao clicar */
+    this.menu.classList.add(this.activeClass);
+    this.menuHamburguer.classList.add(this.activeClass);
+    this.navMenu.classList.add(this.activeClass);
+    this.bar.classList.add(this.activeClass);
+
+    /* Clicar do lado de fora do menu fechara */
+    outsideClick(this.navMenu, this.eventos, () => {
+      this.menuHamburguer.classList.remove(this.activeClass);
+      this.navMenu.classList.remove(this.activeClass);
+      this.menu.classList.remove(this.activeClass);
+      this.bar.classList.remove(this.activeClass);
     });
-  });
+
+    /* Clicar em um item fechar o menu */
+    const arrayItemsMenu = [...this.itemMenus];
+    this.eventos.forEach((event) => {
+      arrayItemsMenu.forEach((item) => {
+        item.addEventListener(event, () => {
+          this.menuHamburguer.classList.remove(this.activeClass);
+          this.navMenu.classList.remove(this.activeClass);
+          this.menu.classList.remove(this.activeClass);
+          this.bar.classList.remove(this.activeClass);
+        });
+      });
+    });
+  }
+
+  addMenuMobileEvents() {
+    this.eventos.forEach((evento) =>
+      this.menuHamburguer.addEventListener(evento, this.openMenu)
+    );
+  }
+
+  init() {
+    if (this.menuHamburguer && this.menu) {
+      this.addMenuMobileEvents();
+    }
+    return this;
+  }
 }

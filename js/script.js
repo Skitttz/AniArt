@@ -4,10 +4,11 @@ import TabNav from "./modules/tab-nav.js";
 import Modal from "./modules/modal.js";
 import Tooltip from "./modules/tooltip.js";
 import ScrollAnimation from "./modules/scroll-animation.js";
+import DropDownMenu from "./modules/dropdown-menu.js";
 
-import initMenu from "./modules/menuMobile.js";
+import MenuMobile from "./modules/menuMobile.js";
 import initModalRegister from "./modules/modal-register.js";
-import initDropDownMenu from "./modules/dropdown-menu.js";
+
 import initDateObject from "./modules/date.js";
 import initDarkMode from "./modules/dark-mode.js";
 
@@ -43,8 +44,22 @@ tooltip.init();
 const scrollAnimation = new ScrollAnimation("[data-animation='scroll']");
 scrollAnimation.init();
 
-initMenu();
-initDropDownMenu();
+const dropDownMenu = new DropDownMenu(
+  "[data-dropdown]",
+  ".dropdown-menu li",
+  "[data-tab='content'] section"
+);
+dropDownMenu.init();
+
+const menuMobile = new MenuMobile(
+  ".hMenu",
+  ".menu",
+  ".listLinks",
+  ".clickedLink",
+  ".last"
+);
+menuMobile.init();
+
 initModalRegister();
 initDateObject();
 initDarkMode();

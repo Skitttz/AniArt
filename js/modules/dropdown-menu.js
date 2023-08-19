@@ -1,48 +1,72 @@
 import outsideClick from "./outsideclick.js";
 
-export default function initDropDownMenu() {
-  // Selecionar os nodes do dropMenu
-  const dropDownMenus = document.querySelectorAll("[data-dropdown]");
-  // Para mudar as sections dos animes
-  const tabDropMenu = document.querySelectorAll(".dropdown-menu li");
-  const tabContent = document.querySelectorAll("[data-tab='content'] section");
-  const eventos = ["touchstart", "click", "mousemove"];
+export default class DropDownMenu {
+  constructor(dropDownsMenu, tabDropMenu, tabContents, events) {
+    // Selecionar os nodes do dropMenu
+    this.dropDownMenus = document.querySelectorAll(dropDownsMenu);
+    // Para mudar as sections dos animes
+    this.tabDropMenu = document.querySelectorAll(tabDropMenu);
+    this.tabContent = document.querySelectorAll(tabContents);
+    this.activeClass = "ativo";
 
-  function handleClick(event) {
+    this.activeDropDownMenu = this.activeDropDownMenu.bind(this);
+
+    /* Define Touchstart e click como arg padrao de events */
+    if (events === undefined) {
+      this.eventos = ["touchstart", "click", "mousemove"];
+    } else {
+      this.eventos = events;
+    }
+  }
+
+  /* Ativa o Drop dowm Menu */
+  activeDropDownMenu(event) {
     event.preventDefault();
-    this.classList.toggle("ativo");
-    outsideClick(this, eventos, () => {
-      this.classList.remove("ativo");
+    const element = event.currentTarget;
+    element.classList.toggle(this.activeClass);
+    outsideClick(element, this.eventos, () => {
+      element.classList.remove(this.activeClass);
     });
   }
 
-  dropDownMenus.forEach((menu) => {
-    ["touchstart", "click", "mousemove"].forEach((userEvent) => {
-      menu.addEventListener(userEvent, handleClick);
+  /* Adiciona o evento no menu */
+  addDropDownMenusEvent() {
+    this.dropDownMenus.forEach((menu) => {
+      ["touchstart", "click", "mousemove"].forEach((userEvent) => {
+        menu.addEventListener(userEvent, this.activeDropDownMenu);
+      });
     });
-  });
-
-  function activeTab(index) {
-    tabContent.forEach((section) => {
-      section.classList.remove("ativo");
-    });
-
-    const direction = tabContent[index].dataset.anime;
-    tabContent[index].classList.add("ativo", direction);
+    this.switchAnimes();
   }
 
-  function switchAnimes() {
-    if (tabDropMenu.length && tabContent.length) {
-      tabDropMenu.forEach((itemMenu, index) => {
+  /* Ativar respectiva tab com o index do mesmo */
+  activeTab(index) {
+    this.tabContent.forEach((section) => {
+      section.classList.remove(this.activeClass);
+    });
+
+    const direction = this.tabContent[index].dataset.anime;
+    this.tabContent[index].classList.add(this.activeClass, direction);
+  }
+
+  /* Muda o content pelo clique no menu */
+  switchAnimes() {
+    if (this.tabDropMenu.length && this.tabContent.length) {
+      this.tabDropMenu.forEach((itemMenu, index) => {
         itemMenu.addEventListener("click", () => {
-          activeTab(index);
+          this.activeTab(index);
         });
         itemMenu.addEventListener("touchstart", () => {
-          activeTab(index);
+          this.activeTab(index);
         });
       });
     }
   }
 
-  switchAnimes();
+  init() {
+    if (this.dropDownMenus.length) {
+      this.addDropDownMenusEvent();
+    }
+    return this;
+  }
 }
