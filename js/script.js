@@ -8,8 +8,7 @@ import ScrollAnimation from "./modules/scroll-animation.js";
 import DropDownMenu from "./modules/dropdown-menu.js";
 import MenuMobile from "./modules/menuMobile.js";
 import DateObject from "./modules/date.js";
-
-import initDarkMode from "./modules/dark-mode.js";
+import DarkMode from "./modules/dark-mode.js";
 
 import fetchAnimes from "./modules/fetchAnimes.js";
 
@@ -76,6 +75,8 @@ const dateObject = new DateObject("[date-year]", [
   { name: "Soul Eater", year: 2003 },
 ]);
 dateObject.init();
-initDarkMode();
+
+const darkMode = new DarkMode('[data-mode="light"] a', "[data-dark]");
+darkMode.init();
 
 fetchAnimes("./animesApi.json", ".number-grid");
