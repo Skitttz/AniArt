@@ -8,11 +8,15 @@
 .grid-section .text-comunidade {
   font-size: 1.3rem;
   opacity: 0.8;
-  color: var(--color-w);
+
   text-align: justify;
   grid-column: 1/4;
   margin-left: 5rem;
   font-weight: 400;
+}
+
+.text-comunidade {
+  color: var(--color-w);
 }
 
 .click-cm {

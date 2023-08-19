@@ -122,16 +122,16 @@
   background: #e7e8ee;
 }
 
-[data-dark="off"] .text-comunidade,
-[data-dark="off"] .text-grid p {
-  color: #222 !important;
+[data-dark="off"].grid-containerColor .community .text-comunidade,
+[data-dark="off"] .community .text-grid p {
+  color: #222;
 }
 
-[data-dark="off"] .community h1 {
+[data-dark="off"].community h1 {
   color: #1b72b8;
 }
 
-[data-dark="off"] .community a {
+[data-dark="off"].grid-containerColor .click-cm {
   color: #1b72b8;
 }
 
@@ -153,9 +153,12 @@
   color: #3b8dad;
 }
 
-[data-dark="off"] p,
-[data-dark="off"] a {
-  color: var(--color-w);
+[data-dark="on"] .community .titulo {
+  color: #b8621b;
+}
+
+[data-dark="off"].grid-containerColor .titulo {
+  color: #1b72b8;
 }
 
 [data-dark="on"] .faq h1 {
