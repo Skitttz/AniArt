@@ -27,3 +27,9 @@
     transparent
   );
 }
+
+@media (max-width: 450px) {
+  .wrapper {
+    padding-bottom: 10px;
+  }
+}

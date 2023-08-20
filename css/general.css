@@ -603,6 +603,10 @@ iframe {
     justify-content: center;
     align-items: center;
   }
+
+  .number {
+    margin-bottom: 1rem;
+  }
   iframe {
     display: none;
   }
