@@ -22,10 +22,10 @@ export default class MenuMobile {
 
   openMenu() {
     /* Iniciar Menu ao clicar */
-    this.menu.classList.add(this.activeClass);
-    this.menuHamburguer.classList.add(this.activeClass);
-    this.navMenu.classList.add(this.activeClass);
-    this.bar.classList.add(this.activeClass);
+    this.menu.classList.toggle(this.activeClass);
+    this.menuHamburguer.classList.toggle(this.activeClass);
+    this.navMenu.classList.toggle(this.activeClass);
+    this.bar.classList.toggle(this.activeClass);
 
     /* Clicar do lado de fora do menu fechara */
     outsideClick(this.navMenu, this.eventos, () => {
@@ -33,6 +33,7 @@ export default class MenuMobile {
       this.navMenu.classList.remove(this.activeClass);
       this.menu.classList.remove(this.activeClass);
       this.bar.classList.remove(this.activeClass);
+      this.menuBar.remove(this.activeClass);
     });
 
     /* Clicar em um item fechar o menu */
@@ -44,6 +45,7 @@ export default class MenuMobile {
           this.navMenu.classList.remove(this.activeClass);
           this.menu.classList.remove(this.activeClass);
           this.bar.classList.remove(this.activeClass);
+          this.menuBar.remove(this.activeClass);
         });
       });
     });
