@@ -432,6 +432,13 @@ iframe {
     transition: 0.3s;
   }
 
+  .logo {
+    margin-left: 20px;
+  }
+  .menu.ativo .logo {
+    margin-left: 0px;
+  }
+
   .link {
     margin: 16px 0;
   }
