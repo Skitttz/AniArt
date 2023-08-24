@@ -13,6 +13,26 @@
   color: rgba(255, 255, 255, 0.5);
 }
 
-@media (max-width: 420px){
-  
+@media (max-width: 728px) {
+  .dados li {
+    margin-bottom: 0rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .dados {
+    padding: 10px;
+  }
+  .copy p {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 328px) {
+  .copy img {
+    max-width: 24px;
+  }
+  .copy p {
+    font-size: 0.7rem;
+  }
 }
