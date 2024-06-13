@@ -3,7 +3,6 @@
 
 </h1>
 
-
 <p align="center">
   <a href="#contexto-">Contexto</a>&nbsp;&nbsp;&nbsp;┋&nbsp;&nbsp;&nbsp;
   <a href="#desafios-">Desafios</a>&nbsp;&nbsp;&nbsp;┋&nbsp;&nbsp;&nbsp;
@@ -11,7 +10,6 @@
   <a href="#como-acessar-">Como Acessar</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 </p>
-
 
 <div align="center">
 <img src="https://i.ibb.co/yNRP3fn/AniArt.png" width="90%" />
@@ -29,25 +27,11 @@ Desenvolver um projeto de comunidade de anime pode ser empolgante, mas também a
 - [x] Aplicar o objeto <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Date">date</a> no contexto do projeto;
 - [x] Modal de login/registrar personalizado;
 - [x] Criação do Dark Mode;
-- [x] Refatorar projeto.
-
 
 ## Tecnologias 🖥️
 
 O projeto foi desenvolvido utilizando **HTML**, **CSS** e **JavaScript**, com o objetivo de criar uma estrutura sólida, estilização atraente e animações envolventes para aprimorar a experiência do usuário dando uma navegação mais fluida e interativa, resultando numa experiência globalmente agradável aos visitantes.
 
-
 ## Como acessar 🚪🚶
 
 O projeto foi hospedado no GitHub Pages, ao clicar no link <a href="https://skitttz.github.io/AniArt/"> skitttz.github.io/AniArt/</a> você será redirecionado para uma previa nessa mesma **aba**.
-
-
-
-
-
-
-
-
-
-
-
